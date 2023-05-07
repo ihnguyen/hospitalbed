@@ -55,4 +55,14 @@ beneficiary_summary <- read.csv(text = c(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r))
 # save data into one csv for tableau (data visualization)
 write.csv(beneficiary_summary, "beneficiary_summary.csv")
 
+beneficiary_summary <- read.csv("beneficiary_summary.csv")
+
+summary <- beneficiary_summary |>
+  group_by(SP_STATE_CODE) |> 
+  summarise(ST_POPULATION = n())
+
+beneficiary_summary_2 <- beneficiary_summary |> 
+  inner_join(summary, by = "SP_STATE_CODE")
+
+write.csv(beneficiary_summary_2, "beneficiary_summary_2.csv")
 

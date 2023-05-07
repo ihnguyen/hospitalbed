@@ -25,4 +25,7 @@ r <- getURL("https://raw.githubusercontent.com/milwaukeedata/desynpuf/master/9-s
 # store data into inpatient object
 inpatient <- read.csv(text = c(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r))
 
+# save data into one csv for tableau (data visualization)
+write.csv(inpatient, "inpatient.csv")
+
 
